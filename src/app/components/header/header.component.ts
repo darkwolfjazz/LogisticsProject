@@ -1,16 +1,17 @@
 import { Component, inject, signal, HostListener, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { ThemeToggleComponent } from '../theme-toggle/theme-toggle.component';
 
 interface NavLink {
   label: string;
-  fragment: string;
+  route: string;
 }
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ThemeToggleComponent],
+  imports: [ThemeToggleComponent, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -21,15 +22,15 @@ export class HeaderComponent {
   readonly scrolled = signal(false);
 
   readonly navLinks: NavLink[] = [
-    { label: 'Home', fragment: 'home' },
-    { label: 'About', fragment: 'about' },
-    { label: 'Services', fragment: 'services' },
-    { label: 'Solutions', fragment: 'solutions' },
-    { label: 'Industries', fragment: 'industries' },
-    { label: 'Why Us', fragment: 'why-us' },
-    { label: 'Process', fragment: 'process' },
-    { label: 'Testimonials', fragment: 'testimonials' },
-    { label: 'Contact', fragment: 'contact' },
+    { label: 'Home', route: '/home' },
+    { label: 'About', route: '/about' },
+    { label: 'Services', route: '/services' },
+    { label: 'Solutions', route: '/solutions' },
+    { label: 'Industries', route: '/industries' },
+    { label: 'Why Us', route: '/why-us' },
+    { label: 'Process', route: '/process' },
+    { label: 'Testimonials', route: '/testimonials' },
+    { label: 'Contact', route: '/contact' },
   ];
 
   @HostListener('window:scroll')
