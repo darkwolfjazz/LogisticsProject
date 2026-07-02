@@ -1,0 +1,62 @@
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual" appScrollReveal>
+        <div class="about-image">
+          <div class="image-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4l3 5v5h-18v-5l3-5h4"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <div class="experience-badge">
+            <span class="exp-number">12+</span>
+            <span class="exp-text">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content" appScrollReveal>
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">Moving Your Business Forward, Globally</h2>
+        <p class="about-text">
+          Global Cargo Forwarders is a full-service logistics company specializing in domestic and international
+          shipping for businesses and individuals. From air and sea freight to complete documentation assistance,
+          we handle every detail so you can focus on what matters most — growing your business.
+        </p>
+        <p class="about-text">
+          With PAN India delivery coverage, pickup and reverse pickup services, and tailored solutions for
+          e-commerce, B2B, B2C, and D2C models, we are the logistics partner you can count on.
+        </p>
+        <a href="#contact" class="btn btn-primary">Learn More About Us</a>
+      </div>
+    </div>
+
+    <div class="highlights-grid grid-4" appScrollReveal>
+      @for (item of highlights; track item.title; let i = $index) {
+        <div class="highlight-card card" [class]="'reveal-delay-' + (i + 1)">
+          <div class="icon-box">
+            @switch (item.icon) {
+              @case ('globe') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              }
+              @case ('shield') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              }
+              @case ('clock') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              }
+              @case ('users') {
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              }
+            }
+          </div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.desc }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

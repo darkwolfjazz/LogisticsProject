@@ -1,0 +1,29 @@
+<section id="why-us" class="section">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-content" appScrollReveal>
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">The Global Cargo Forwarders Advantage</h2>
+        <p class="why-desc">
+          We combine technology, expertise, and a customer-first approach to deliver logistics
+          solutions that businesses and individuals trust every day.
+        </p>
+        <div class="why-cta">
+          <a href="#quote" class="btn btn-primary">Get Started Today</a>
+        </div>
+      </div>
+
+      <div class="reasons-list">
+        @for (reason of reasons; track reason.title; let i = $index) {
+          <div class="reason-item" appScrollReveal [class]="'reveal-delay-' + ((i % 3) + 1)">
+            <div class="reason-number">{{ (i + 1).toString().padStart(2, '0') }}</div>
+            <div>
+              <h3>{{ reason.title }}</h3>
+              <p>{{ reason.desc }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

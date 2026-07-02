@@ -1,0 +1,28 @@
+<section id="process" class="section section-alt">
+  <div class="container">
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Our Process</span>
+      <h2 class="section-title">Simple Steps to Ship Anywhere</h2>
+      <p class="section-desc">
+        Our streamlined process ensures your shipments move smoothly from pickup to delivery — with full transparency at every stage.
+      </p>
+    </div>
+
+    <div class="process-timeline">
+      @for (item of steps; track item.step; let i = $index; let last = $last) {
+        <div class="process-step" appScrollReveal [class]="'reveal-delay-' + (i + 1)">
+          <div class="step-marker">
+            <span class="step-num">{{ item.step }}</span>
+            @if (!last) {
+              <div class="step-line"></div>
+            }
+          </div>
+          <div class="step-content card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

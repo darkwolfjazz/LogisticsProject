@@ -1,0 +1,189 @@
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <div class="section-header" appScrollReveal>
+      <span class="section-label">Contact Us</span>
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-desc">
+        Have questions or need a shipping quote? Share your details and our team will contact you by email or phone. No direct booking is completed through this website.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info" appScrollReveal>
+        <div class="info-card card">
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Our Office</h4>
+              <p>123 Logistics Park, Andheri East<br/>Mumbai, Maharashtra 400001</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>Phone</h4>
+              <p>+91 98765 43210<br/>+91 98765 43211</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info&#64;globalcargoforwarders.in<br/>support&#64;globalcargoforwarders.in</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>Business Hours</h4>
+              <p>Mon – Sat: 9:00 AM – 7:00 PM<br/>Sun: 10:00 AM – 4:00 PM</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Operational Partners</h4>
+              <p><strong>ICF Shipping Freight Forwarders</strong><br/>By Sea or Air, International only<br/><strong>DTDC Express Ltd</strong><br/>By Surface or Air, PAN India & International<br/>GSTIN: 09ABCFG8946N1ZM</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-container" appScrollReveal>
+          <iframe
+            title="Global Cargo Forwarders Office Location"
+            src="https://maps.google.com/maps?q=Andheri+East+Mumbai&t=&z=14&ie=UTF8&iwloc=&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+
+      <div id="quote" class="quote-form-wrapper" appScrollReveal>
+        <div class="form-card card">
+          <h3>Request a Quotation</h3>
+          <p class="form-subtitle">Fill in the details below and our team will contact you by email or phone within 24 hours. No direct booking is completed through this website.</p>
+
+          @if (submitted()) {
+            <div class="success-message">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h4>Thank you!</h4>
+              <p>Your enquiry has been submitted successfully. It has been sent to devanjana.mukherjee71@gmail.com with your contact details, and an acknowledgment email has been sent to your provided email address.</p>
+            </div>
+          } @else {
+            <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()">
+              <div class="form-row">
+                <div class="form-group" [class.invalid]="isInvalid('name')">
+                  <label for="name">Full Name *</label>
+                  <input id="name" type="text" formControlName="name" placeholder="John Doe" />
+                  @if (isInvalid('name')) {
+                    <span class="error">Name is required</span>
+                  }
+                </div>
+                <div class="form-group" [class.invalid]="isInvalid('email')">
+                  <label for="email">Email *</label>
+                  <input id="email" type="email" formControlName="email" placeholder="john@company.com" />
+                  @if (isInvalid('email')) {
+                    <span class="error">Valid email is required</span>
+                  }
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" [class.invalid]="isInvalid('phone')">
+                  <label for="phone">Phone *</label>
+                  <input id="phone" type="tel" formControlName="phone" placeholder="+91 98765 43210" />
+                  @if (isInvalid('phone')) {
+                    <span class="error">Valid phone number is required</span>
+                  }
+                </div>
+                <div class="form-group">
+                  <label for="company">Company</label>
+                  <input id="company" type="text" formControlName="company" placeholder="Company name (optional)" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" [class.invalid]="isInvalid('serviceType')">
+                  <label for="serviceType">Service Type *</label>
+                  <select id="serviceType" formControlName="serviceType">
+                    <option value="" disabled>Select a service</option>
+                    @for (service of serviceTypes; track service) {
+                      <option [value]="service">{{ service }}</option>
+                    }
+                  </select>
+                  @if (isInvalid('serviceType')) {
+                    <span class="error">Please select a service</span>
+                  }
+                </div>
+                <div class="form-group" [class.invalid]="isInvalid('shipmentType')">
+                  <label for="shipmentType">Shipment Type *</label>
+                  <select id="shipmentType" formControlName="shipmentType">
+                    <option value="" disabled>Select shipment type</option>
+                    @for (type of shipmentTypes; track type) {
+                      <option [value]="type">{{ type }}</option>
+                    }
+                  </select>
+                  @if (isInvalid('shipmentType')) {
+                    <span class="error">Please select shipment type</span>
+                  }
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group" [class.invalid]="isInvalid('origin')">
+                  <label for="origin">Origin *</label>
+                  <input id="origin" type="text" formControlName="origin" placeholder="Pickup city/country" />
+                  @if (isInvalid('origin')) {
+                    <span class="error">Origin is required</span>
+                  }
+                </div>
+                <div class="form-group" [class.invalid]="isInvalid('destination')">
+                  <label for="destination">Destination *</label>
+                  <input id="destination" type="text" formControlName="destination" placeholder="Delivery city/country" />
+                  @if (isInvalid('destination')) {
+                    <span class="error">Destination is required</span>
+                  }
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="weight">Approx. Weight (kg)</label>
+                <input id="weight" type="text" formControlName="weight" placeholder="e.g. 25 kg" />
+              </div>
+
+              <div class="form-group" [class.invalid]="isInvalid('message')">
+                <label for="message">Additional Details *</label>
+                <textarea id="message" formControlName="message" rows="4" placeholder="Describe your shipment requirements..."></textarea>
+                @if (isInvalid('message')) {
+                  <span class="error">Please provide shipment details</span>
+                }
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full" [disabled]="submitting()">
+                @if (submitting()) {
+                  Submitting...
+                } @else {
+                  Submit Enquiry
+                }
+              </button>
+            </form>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

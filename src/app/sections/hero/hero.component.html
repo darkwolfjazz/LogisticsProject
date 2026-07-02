@@ -1,0 +1,60 @@
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <svg class="world-map" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)"/>
+      <!-- Simplified world continents -->
+      <g fill="rgba(37,99,235,0.15)" stroke="rgba(59,130,246,0.3)" stroke-width="1">
+        <path d="M150,180 Q180,160 220,170 T280,190 Q300,200 290,230 T250,260 Q200,270 160,250 T150,180"/>
+        <path d="M320,150 Q380,130 450,140 T520,160 Q540,180 530,210 T480,240 Q420,250 360,230 T320,150"/>
+        <path d="M480,280 Q520,260 560,270 T620,290 Q640,310 630,340 T580,370 Q520,380 480,360 T480,280"/>
+        <path d="M620,160 Q680,140 740,150 T820,170 Q850,190 840,220 T790,250 Q730,260 670,240 T620,160"/>
+        <path d="M700,300 Q750,280 800,290 T870,310 Q890,330 880,360 T830,390 Q770,400 720,380 T700,300"/>
+        <path d="M200,320 Q250,300 300,310 T370,330 Q390,350 380,380 T330,410 Q270,420 220,400 T200,320"/>
+      </g>
+      <!-- Route lines -->
+      <g stroke="rgba(249,115,22,0.4)" stroke-width="1.5" fill="none" stroke-dasharray="6,4">
+        <path d="M200,200 Q400,120 600,180 T850,220"/>
+        <path d="M250,350 Q500,280 750,320"/>
+        <path d="M300,180 Q500,250 700,200"/>
+      </g>
+      <!-- Connection dots -->
+      <g fill="#f97316">
+        <circle cx="200" cy="200" r="4"/><circle cx="450" cy="160" r="4"/>
+        <circle cx="600" cy="180" r="4"/><circle cx="850" cy="220" r="4"/>
+        <circle cx="250" cy="350" r="4"/><circle cx="750" cy="320" r="4"/>
+      </g>
+    </svg>
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="hero-text" appScrollReveal>
+      <span class="hero-badge">Global Logistics Partner</span>
+      <h1 class="hero-title">
+        Moving Shipments.<br/>
+        <span class="highlight">Building Trust.</span>
+      </h1>
+      <p class="hero-desc">
+        From local deliveries to global exports, we provide reliable, cost-effective, and time-bound logistics solutions for businesses and individuals. For quotations and shipment planning, our team will contact you by email or phone. No direct booking is completed through the website.
+      </p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-primary">Contact Us</a>
+        <a href="#services" class="btn btn-secondary">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-stats" appScrollReveal>
+      @for (stat of stats; track stat.label; let i = $index) {
+        <div class="stat-item" [class]="'reveal-delay-' + (i + 1)">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
