@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-why-choose-us',
   standalone: true,
-  imports: [ScrollRevealDirective],
+  imports: [ScrollRevealDirective, RouterLink],
   templateUrl: './why-choose-us.component.html',
   styleUrl: './why-choose-us.component.css',
 })
