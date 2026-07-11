@@ -11,9 +11,9 @@ import { ScrollRevealDirective } from '../../directives/scroll-reveal.directive'
 })
 export class AboutComponent {
   readonly highlights = [
-    { icon: 'globe', title: 'Global Reach', desc: 'Import & export consignments across 50+ countries via air and sea.' },
-    { icon: 'shield', title: 'Trusted Partner', desc: 'Over a decade of reliable logistics for B2B, B2C, and D2C businesses.' },
-    { icon: 'clock', title: 'Timely Delivery', desc: 'Premium and standard shipping options tailored to your timeline.' },
-    { icon: 'users', title: 'Dedicated Support', desc: '24/7 customer assistance for walk-in and corporate clients alike.' },
+    { icon: 'shield', title: 'Trusted Partner', desc: 'Reliable logistics support for industries such as carpet and textile, with tailored solutions for every shipment.' },
+    { icon: 'clock', title: 'Working Hours', desc: 'Open from 9:00 AM to 9:00 PM for customer support, enquiries, and shipment coordination.' },
+    { icon: 'users', title: 'Dedicated Support', desc: 'Personalized assistance for walk-in and corporate clients, from booking to delivery follow-up.' },
+    { icon: 'globe', title: 'Pan-India Coverage', desc: 'Efficient domestic and international freight handling with dependable reach across key locations.' },
   ];
 }

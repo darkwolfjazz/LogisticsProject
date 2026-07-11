@@ -31,9 +31,9 @@ export class ServicesComponent {
     },
     {
       icon: 'domestic',
-      title: 'PAN India Delivery',
-      description: 'Comprehensive domestic shipping covering every pin code across India with real-time tracking.',
-      features: ['All pin codes', 'Same-day metro', 'Live tracking'],
+      title: 'Surface Transport',
+      description: 'Reliable domestic and cross-border surface logistics for scheduled and cost-effective shipments.',
+      features: ['Road transport', 'Scheduled movement', 'Flexible routing'],
     },
     {
       icon: 'pickup',
@@ -43,15 +43,15 @@ export class ServicesComponent {
     },
     {
       icon: 'premium',
-      title: 'Premium Shipping',
-      description: 'Priority handling with guaranteed delivery windows for time-sensitive shipments.',
-      features: ['Priority handling', 'Guaranteed SLA', 'Dedicated agent'],
+      title: 'Import & Export',
+      description: 'End-to-end support for international import and export shipments with documentation and customs assistance.',
+      features: ['Customs support', 'Export handling', 'Import coordination'],
     },
     {
       icon: 'standard',
-      title: 'Standard Shipping',
-      description: 'Reliable and economical shipping option for regular consignments with full tracking.',
-      features: ['Cost-effective', 'Reliable transit', 'Full tracking'],
+      title: 'PAN India Delivery',
+      description: 'Comprehensive domestic shipping covering every pin code across India with real-time tracking.',
+      features: ['All pin codes', 'Same-day metro', 'Live tracking'],
     },
   ];
 }

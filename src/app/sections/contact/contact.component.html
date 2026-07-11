@@ -58,7 +58,11 @@
           </div>
         </div>
 
-        <div class="map-container" appScrollReveal>
+        <div class="map-container card" appScrollReveal>
+          <div class="map-header">
+            <h4>Visit Our Office</h4>
+            <p>Andheri East, Mumbai</p>
+          </div>
           <iframe
             title="Global Cargo Forwarders Office Location"
             src="https://maps.google.com/maps?q=Andheri+East+Mumbai&t=&z=14&ie=UTF8&iwloc=&output=embed"
@@ -158,19 +162,6 @@
                     <span class="error">Destination is required</span>
                   }
                 </div>
-              </div>
-
-              <div class="form-group">
-                <label for="weight">Approx. Weight (kg)</label>
-                <input id="weight" type="text" formControlName="weight" placeholder="e.g. 25 kg" />
-              </div>
-
-              <div class="form-group" [class.invalid]="isInvalid('message')">
-                <label for="message">Additional Details *</label>
-                <textarea id="message" formControlName="message" rows="4" placeholder="Describe your shipment requirements..."></textarea>
-                @if (isInvalid('message')) {
-                  <span class="error">Please provide shipment details</span>
-                }
               </div>
 
               <button type="submit" class="btn btn-primary btn-full" [disabled]="submitting()">

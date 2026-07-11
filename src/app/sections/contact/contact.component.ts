@@ -27,8 +27,6 @@ export class ContactComponent {
     shipmentType: ['', Validators.required],
     origin: ['', Validators.required],
     destination: ['', Validators.required],
-    weight: [''],
-    message: ['', Validators.required],
   });
 
   readonly serviceTypes = [
@@ -68,8 +66,6 @@ export class ContactComponent {
       `Shipment Type: ${formValue.shipmentType || '-'}`,
       `Origin: ${formValue.origin || '-'}`,
       `Destination: ${formValue.destination || '-'}`,
-      `Approx. Weight: ${formValue.weight || '-'}`,
-      `Additional Details: ${formValue.message || '-'}`,
     ].join('\n');
 
     const acknowledgementSubject = `We received your enquiry - ${this.companyName}`;
@@ -101,8 +97,6 @@ export class ContactComponent {
       shipmentType: formValue.shipmentType || '',
       origin: formValue.origin || '',
       destination: formValue.destination || '',
-      weight: formValue.weight || '',
-      message: formValue.message || '',
       companyBody,
     });
 
