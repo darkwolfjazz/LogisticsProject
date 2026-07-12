@@ -21,7 +21,7 @@ export class ContactComponent {
   readonly quoteForm = this.fb.group({
     name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.email]],
-    phone: ['', [Validators.required, Validators.pattern(/^[+]?[\d\s-]{10,15}$/)]],
+    phone: ['', [Validators.pattern(/^[+]?([\d\s-]{10,15})$/)]],
     company: [''],
     serviceType: ['', Validators.required],
     shipmentType: ['', Validators.required],
