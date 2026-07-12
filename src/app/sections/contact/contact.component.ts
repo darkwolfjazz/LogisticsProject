@@ -84,55 +84,74 @@ export class ContactComponent {
       this.companyName,
     ].join('\n');
 
-    const formData = new URLSearchParams({
-      _subject: companySubject,
-      _replyto: formValue.email || '',
-      _template: 'table',
-      _captcha: 'false',
-      name: formValue.name || '',
-      email: formValue.email || '',
-      phone: formValue.phone || '',
-      company: formValue.company || '',
-      serviceType: formValue.serviceType || '',
-      shipmentType: formValue.shipmentType || '',
-      origin: formValue.origin || '',
-      destination: formValue.destination || '',
-      companyBody,
-    });
-
-    if (this.ccEmail) {
-      formData.append('_cc', this.ccEmail);
-    }
-
-    const acknowledgementData = new URLSearchParams({
-      _subject: acknowledgementSubject,
-      _replyto: this.contactEmail,
-      _template: 'table',
-      _captcha: 'false',
-      name: formValue.name || '',
-      email: formValue.email || '',
-      phone: formValue.phone || '',
-      message: acknowledgementBody,
-    });
-
     try {
-      await fetch(`https://formsubmit.co/ajax/${this.contactEmail}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formData.toString(),
+      const createHiddenForm = (action: string, fields: Record<string, string>) => {
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = action;
+        form.acceptCharset = 'UTF-8';
+        form.style.display = 'none';
+        form.target = 'formsubmit-frame';
+
+        Object.entries(fields).forEach(([name, value]) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = value;
+          form.appendChild(input);
+        });
+
+        return form;
+      };
+
+      const iframe = document.createElement('iframe');
+      iframe.name = 'formsubmit-frame';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const companyForm = createHiddenForm(`https://formsubmit.co/${this.contactEmail}`, {
+        _subject: companySubject,
+        _replyto: formValue.email || '',
+        _template: 'table',
+        _captcha: 'false',
+        name: formValue.name || '',
+        email: formValue.email || '',
+        phone: formValue.phone || '',
+        company: formValue.company || '',
+        serviceType: formValue.serviceType || '',
+        shipmentType: formValue.shipmentType || '',
+        origin: formValue.origin || '',
+        destination: formValue.destination || '',
+        companyBody,
+        ...(this.ccEmail ? { _cc: this.ccEmail } : {}),
       });
 
+      document.body.appendChild(companyForm);
+      companyForm.submit();
+      document.body.removeChild(companyForm);
+
       if (formValue.email) {
-        await fetch(`https://formsubmit.co/ajax/${formValue.email}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: acknowledgementData.toString(),
+        const acknowledgementForm = createHiddenForm(`https://formsubmit.co/${formValue.email}`, {
+          _subject: acknowledgementSubject,
+          _replyto: this.contactEmail,
+          _template: 'table',
+          _captcha: 'false',
+          name: formValue.name || '',
+          email: formValue.email || '',
+          phone: formValue.phone || '',
+          message: acknowledgementBody,
         });
+
+        document.body.appendChild(acknowledgementForm);
+        acknowledgementForm.submit();
+        document.body.removeChild(acknowledgementForm);
       }
+
+      window.setTimeout(() => {
+        if (iframe.parentNode) {
+          document.body.removeChild(iframe);
+        }
+      }, 1500);
     } catch (error) {
       console.error('Failed to submit enquiry', error);
     } finally {
